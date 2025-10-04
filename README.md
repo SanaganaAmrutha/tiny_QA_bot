@@ -1,16 +1,5 @@
 # tiny_chatbot
-Folder Structure
-Tiny-AI-Chatbot/
-│
-├─ app.py               # Flask application
-├─ templates/
-│   └─ index.html       # Frontend HTML
-├─ static/
-│   └─ style.css        # CSS for the interface
-├─ .env                 # Environment variables ( For API key)
-├─ requirements.txt     # Python dependencies
-└─ README.md            # Project documentation
-
+ 
 
 A lightweight web-based AI chatbot powered by **OpenAI GPT-3.5-turbo**, built using **Flask**. Ask questions and receive intelligent answers in real-time through a clean, responsive web interface.
 
@@ -31,8 +20,7 @@ A lightweight web-based AI chatbot powered by **OpenAI GPT-3.5-turbo**, built us
 
 ## **Demo**
 
-![Chatbot Demo](demo_screenshot.png)  
-*(Replace with your own screenshot if available)*
+  The demo is in outout.png
 
 ---
 
@@ -62,3 +50,18 @@ OPENAI_API_KEY=your_openai_api_key_here
 4. Run the Flask App
 
  python app.py
+
+
+Folder Structure
+
+
+Tiny-AI-Chatbot/
+│
+├─ app.py               # Flask application
+├─ templates/
+│   └─ index.html       # Frontend HTML
+├─ static/
+│   └─ style.css        # CSS for the interface
+├─ .env                 # Environment variables ( For API key)
+├─ requirements.txt     # Python dependencies
+└─ README.md            # Project documentation
