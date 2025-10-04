@@ -20,7 +20,7 @@ A lightweight web-based AI chatbot powered by **OpenAI GPT-3.5-turbo**, built us
 
 ## **Demo**
 
-  The demo is in outout.png
+  The demo is in output.png
 
 ---
 
