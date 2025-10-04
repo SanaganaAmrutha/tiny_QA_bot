@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiny AI Q&A Bot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="container">
+      <h1>🤖 Tiny AI Q&A Bot</h1>
+    <!-- Dark mode toggle -->
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider round"></span>
+      </label>
+      <span>Dark Mode</span>
+    </div>
+
+    <!-- User input -->
+    <textarea id="question" placeholder="Ask me anything..."></textarea>
+    <button id="askBtn">Ask</button>
+
+    <!-- Answer display -->
+    <div id="answer-box"></div>
+  </div>
+
+  <script>
+    const toggle = document.getElementById("darkModeToggle");
+    const body = document.body;
+
+    // Load preference from localStorage
+    if (localStorage.getItem("darkMode") === "enabled") {
+      body.classList.add("dark-mode");
+      toggle.checked = true;
+    }
+
+    // Toggle dark mode
+    toggle.addEventListener("change", () => {
+      body.classList.toggle("dark-mode");
+      if(body.classList.contains("dark-mode")){
+        localStorage.setItem("darkMode", "enabled");
+      } else {
+        localStorage.setItem("darkMode", "disabled");
+      }
+    });
+
+    // AI Question Handling
+    const askBtn = document.getElementById("askBtn");
+    const questionBox = document.getElementById("question");
+    const answerBox = document.getElementById("answer-box");
+
+    askBtn.addEventListener("click", async () => {
+      const question = questionBox.value.trim();
+      if (!question) {
+        answerBox.innerText = "Please enter a valid question.";
+        return;
+      }
+
+      answerBox.innerText = "🤖 Tiny AI Q&A Bot is thinking...";
+
+      try {
+        const response = await fetch("/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ question })
+        });
+        const data = await response.json();
+        answerBox.innerText = "🤖 " + data.answer;
+      } catch (err) {
+        answerBox.innerText = "Error: Could not get response from AI.";
+      }
+    });
+  </script>
+</body>
+</html>
+
+
