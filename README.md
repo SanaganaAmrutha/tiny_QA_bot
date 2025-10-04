@@ -36,8 +36,8 @@ A lightweight web-based AI chatbot powered by **OpenAI GPT-3.5-turbo**, built us
 ## **Setup Instructions**
 
 ### **1. Clone the repository**
-git clone <your-repo-link>
-cd <your-repo-folder>
+git clone https://github.com/SanaganaAmrutha/tiny_chatbot.git
+
 
 2. Install dependencies
 
